@@ -44,6 +44,9 @@
         case HLNetWorkStatusWWAN4G:
             self.statusLabel.text = @"4G网络";
             break;
+        case HLNetWorkStatusWWAN5G:
+            self.statusLabel.text = @"5G网络";
+            break;
         case HLNetWorkStatusWiFi:
             self.statusLabel.text = @"WiFi";
             break;

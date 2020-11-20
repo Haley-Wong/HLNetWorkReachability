@@ -147,11 +147,18 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
                            CTRadioAccessTechnologyeHRPD];
         
         NSArray *typeStrings4G = @[CTRadioAccessTechnologyLTE];
+        
+        NSArray *typeStrings5G = @[];
+        if(@available(iOS 14.0, *)){
+            typeStrings5G = @[CTRadioAccessTechnologyNRNSA,CTRadioAccessTechnologyNR];
+        }
 
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
             CTTelephonyNetworkInfo *teleInfo= [[CTTelephonyNetworkInfo alloc] init];
             NSString *accessString = teleInfo.currentRadioAccessTechnology;
-            if ([typeStrings4G containsObject:accessString]) {
+            if ([typeStrings5G containsObject:accessString]) {
+                return HLNetWorkStatusWWAN5G;
+            } else if ([typeStrings4G containsObject:accessString]) {
                 return HLNetWorkStatusWWAN4G;
             } else if ([typeStrings3G containsObject:accessString]) {
                 return HLNetWorkStatusWWAN3G;

@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, HLNetWorkStatus) {
     HLNetWorkStatusWWAN2G = 2,
     HLNetWorkStatusWWAN3G = 3,
     HLNetWorkStatusWWAN4G = 4,
+    HLNetWorkStatusWWAN5G = 5,
     
     HLNetWorkStatusWiFi = 9,
 };
